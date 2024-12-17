@@ -2,7 +2,6 @@ K8S Commands-
 
 
 
-
 Expose replica set as a service
 
 create yml file for rs
