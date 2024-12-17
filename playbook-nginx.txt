@@ -1,0 +1,30 @@
+
+---
+   - name: ensure NGINX is installed and running
+     hosts: webserver
+     become: yes
+     tasks:
+       - name : install nginx
+         apt:
+           name: nginx
+ 	   state: present
+	   update_cache: yes
+       - name: ensure nginx is running
+         systemd:
+           name: nginx
+           state: started
+           enabled: true
+
+hosts:webserver
+become:yes
+tasks:
+ - name:install nginx
+   apt:
+     name:  nginx
+     state: present
+     update_cache:  true
+ -name:  nginx running
+    system:
+	state:  started
+        enabled:  true
+		   
