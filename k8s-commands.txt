@@ -1,0 +1,27 @@
+K8S Commands-
+
+Expose replica set as a service
+
+create yml file for rs
+touch rs.yml
+
+kubectl create -f rs.yml
+
+kubectl get rs
+kubectl expose rs rs-name --type-LoadBalancer --port=80  --target-port=8080  --name= helloworld-rs-servcie
+kubectl scale --replicaset=10 deployment/my-first-deployment
+
+
+===============Deployment===========================
+
+create Deployment
+kubectl create deployment hello-world-deploy --image=maheshhalkanche/hello-world-rest-api:latest
+
+kubectl rollout history deployment/hello-world-deploy
+
+kubectl annotate deployment/hello-world-deploy kubernetes.io/change-cause="Deployment CREATE - App Version 1.0.0"
+
+kubetl rollout history deployment/hello-world-deploy
+
+============Expose deployment as Service===================
+kubectl expose deployment hello-world-deploy --type=LoadBalancer --port=80 --target-port=80 --name=my-first-deployment-service
